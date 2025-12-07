@@ -297,7 +297,7 @@ Unpack the Plex media server package
 ```bash
 dpkg -i plexmediaserver_*.deb
 ```
-Enable en start the Plex media server
+Enable and start the Plex media server
 ```bash
 systemctl enable plexmediaserver
 systemctl start plexmediaserver
