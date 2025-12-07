@@ -611,37 +611,42 @@ systemctl restart nginx
 
 **STEP 8B - SSL CERTIFICATE VIA NGINX PROXY MANAGER**
 
-Go to your NGINX Proxy Manager container interface and add a new Proxy Host:
+Go to your NGINX Proxy Manager container interface and add a new **Proxy Host**:
 
-| Settings | Value | Notes |
+| Setting | Value | Notes |
 | :--- | :--- | :--- |
-| **Domain Names**  | `YOUR_DOMAIN_NAME` | |
+| **Domain Names** | `YOUR_DOMAIN_NAME` | e.g., `plex.yourdomain.com` |
 | **Scheme** | `HTTP` | |
-| **Forward Hostname / IP** | `YOUR_PLEX_IP_ADDRESS (e.g. 192.168.20.x)` | |
-| **Forward Port** | `32400` | Use 32400 for a single Plex server. If you are using the **Socat Proxy (Step 7)** for a second or subsequent server, use the chosen external port (e.g., 32402). |
+| **Forward Hostname / IP** | `YOUR_PLEX_IP_ADDRESS` | e.g., `192.168.20.x` (the IP of your Plex container) |
+| **Forward Port** | `32400` | Use **32400** for a single server. Use **32402** (or your chosen port) if you are using the **Socat Proxy (Step 7)**. |
 | **Block Common Exploits** | `Enabled` | |
-| **Websockets Support** | `Enabled` | |
-| **(Tab SSL) SSL Certificate** | `See steps below' | |
+| **Websockets Support** | `Enabled` | Required for Plex functionality. |
+| **(Tab SSL) SSL Certificate** | **See instructions below** | |
 | **Force SSL** | `Enabled` | |
 | **HSTS Enabled** | `Enabled` | |
 | **HTTP/2 Support** | `Enabled` | |
 
-After you apply the basic proxy settings, switch to the SSL tab:
+After you apply the basic proxy settings, switch to the **SSL** tab:
 
-**A. If you have an existing certificate:**
-- In the SSL Certificate dropdown, select your existing certificate.
-- Enable Force SSL.
+### A. If you have an existing certificate:
 
-**B. If you need a new Let's Encrypt Certificate:**
-1. In the **SSL Certificate** dropdown, select ```Request a new Certificate```.
-2. Enable **Force SSL**.
-3. Check the box to **Use a DNS Challenge** (Recommended).
-4. In the **DNS Provider** dropdown, select your provider (e.g., Cloudflare, Namecheap, etc.).
-5. In the **Credentials File Content** field, paste the required API token/key from your provider.
-6. Click **Save** and wait for the certificate to generate.
+1.  In the **SSL Certificate** dropdown, select your existing certificate.
+2.  Ensure **Force SSL** is enabled.
+
+### B. If you need a new Let's Encrypt Certificate (Recommended):
+
+1.  In the **SSL Certificate** dropdown, select **`Request a new Certificate`**.
+2.  Ensure **Force SSL** is enabled.
+3.  Check the box to **Use a DNS Challenge** (Recommended for home labs).
+4.  In the **DNS Provider** dropdown, select your provider (e.g., Cloudflare, Namecheap, etc.).
+5.  In the **Credentials File Content** field, paste the required API token/key from your provider.
+6.  Click **Save** and wait for the certificate to generate.
 
 ## 🔑 STEP 9 - Configure SSH for FileZilla Access ##
-Edit SSH configuration: ```nano /etc/ssh/sshd_config```
+Go back into your Plex container console and edit the SSH configuration: 
+```bash
+nano /etc/ssh/sshd_config
+```
 
 Make these changes:
 ````bash
