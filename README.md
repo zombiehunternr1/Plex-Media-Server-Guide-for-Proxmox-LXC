@@ -277,7 +277,8 @@ You get asked to fill in the following fields:
  - Other
 
 You don't need to fill these in and just press **Enter** to continue.
-When confirming if the information type 'Y' and hit **Enter**.
+
+When confirming if the information type '**Y**' and hit **Enter**.
 
 ## 💿 STEP 5 - Install Plex Media Server and Check GPU Access ##
 
