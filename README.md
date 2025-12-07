@@ -347,6 +347,7 @@ Go to your Plex **container → Resources → Add → Mount Point**.
 systemctl stop plexmediaserver
 ````
 Choose Storage Configuration:
+
 OPTION A: SINGLE DRIVE SETUP
 ````bash
 mkdir -p /mnt/plexdata
