@@ -674,12 +674,14 @@ Access Plex via: ```http://YOUR_IP_ADDRESS:32400/web``` (or ````:32402/web```` i
 
 1.  **Sign in** to your Plex account. (If needed)
 2.  **Give the server a name** (e.g., *Proxmox-Plex*).
-3.  **Add Libraries using these paths:**
+3.  Allow me to access my media outside my home: Enabled
+4.  Click on **Next**
+5.  **Add Libraries using these paths:**
 
 | Library type | Media Folder Path |
 | :--- | :--- |
-| **Movies** | `/mnt/plexdata/movies` |
-| **TV Shows** | `/mnt/plexdata/tvshows` |
+| **Movies** | ```plexdata``` → ```Movies```. The final path will look like this: `/mnt/plexdata/movies` |
+| **TV Shows** | ```plexdata``` → ```tvshows```. The final path will look like this: `/mnt/plexdata/tvshows` |
 
 **Remote Access Settings**
 For your **FIRST/MAIN** Plex Server **ONLY**:
