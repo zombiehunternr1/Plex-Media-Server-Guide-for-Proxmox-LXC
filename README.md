@@ -360,14 +360,14 @@ chmod -R 775 /mnt/plexdata
 ````
 ````bash
 OPTION B: SEPARATE METADATA LOCATION (When running Proxmox on a SSD and your media storage on an HDD)
-# mkdir -p /opt/plex/metadata
-# mkdir -p /opt/plex/transcode
-# mkdir -p /mnt/plexdata/movies
-# mkdir -p /mnt/plexdata/tvshows
-# chown -R plex:plex /opt/plex
-# chown -R plex:plex /mnt/plexdata
-# chmod -R 775 /opt/plex
-# chmod -R 775 /mnt/plexdata
+mkdir -p /opt/plex/metadata
+mkdir -p /opt/plex/transcode
+mkdir -p /mnt/plexdata/movies
+mkdir -p /mnt/plexdata/tvshows
+chown -R plex:plex /opt/plex
+chown -R plex:plex /mnt/plexdata
+chmod -R 775 /opt/plex
+chmod -R 775 /mnt/plexdata
 ````
 Continue with User and Symlink:
 ````bash
