@@ -430,6 +430,19 @@ chown -R plex:plex /mnt/plexdata
 chmod -R 775 /opt/plex
 chmod -R 775 /mnt/plexdata
 ````
+⚠️ IMPORTANT WARNING: Ignore 'Permission denied' 
+
+You may see the following denied messages regarding the system-created /mnt/plexdata/lost+found directory. 
+
+These are normal and expected because only the root user can modify this directory. 
+
+You can safely ignore these messages and continue:
+```bash
+chown: cannot read directory '/mnt/plexdata/lost+found': Permission denied
+chmod: changing permissions of '/mnt/plexdata/lost+found': Operation not permitted
+chmod: cannot read directory '/mnt/plexdata/lost+found': Permission denied
+```
+
 Continue with User and Symlink:
 
 Add plexadmin to plex group for file management
