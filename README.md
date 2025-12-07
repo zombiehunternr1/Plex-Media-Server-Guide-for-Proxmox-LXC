@@ -283,7 +283,11 @@ When confirming if the information type '**Y**' and hit **Enter**.
 ## 💿 STEP 5 - Install Plex Media Server and Check GPU Access ##
 
 Download latest Plex Media Server
-Visit: [https://www.plex.tv/media-server-downloads/](https://www.plex.tv/media-server-downloads/) and copy the link for your hardware/distro.
+
+Visit: [https://www.plex.tv/media-server-downloads/](https://www.plex.tv/media-server-downloads/).
+
+In this guide we're working with **Intel**.
+Copy the link for the **Ubuntu (16.04+) / Debian (8+) - Intel/AMD 64-bit for Linux** package, and paste it into the command below.
 
 ```bash
 wget PASTE_LINK_HERE
