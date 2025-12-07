@@ -388,6 +388,8 @@ systemctl restart plexmediaserver
 ````
 ## 🗄️ STEP 6 - Prepare Dedicated Storage Volume ##
 1. On Proxmox Host
+
+Open the **Shell** on your Proxmox host and create the dedicated directory. The `chown` command is critical for granting the LXC container ownership of the volume.
 ````bash
 mkdir -p /srv/plexdata
 chown 100000:100000 /srv/plexdata
