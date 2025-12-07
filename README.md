@@ -96,7 +96,7 @@ Update the initramfs:
 ````bash
 update-initramfs -u -k all
 ````
-After this is done reboot the system:
+After this is done reboot the system so it can start up with the right configuration:
 ```bash
 reboot
 ```
