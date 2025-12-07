@@ -76,8 +76,10 @@ update-grub
 
 ### 2. Add Kernel Modules
 
-Edit the modules file: `nano /etc/modules`
-
+Edit the modules file: 
+````bash
+nano /etc/modules-load.d/vfio-pci.conf
+````
 Add these lines to the end:
 ````bash
 vfio
