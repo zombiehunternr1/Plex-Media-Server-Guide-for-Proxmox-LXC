@@ -210,15 +210,15 @@ systemctl restart networking
 
 Assumptions: Trusted Network: ```192.168.10.x```, Server Network: ```192.168.20.x```. Adjust if your network differs.
 
-SSH: Allow only from your trusted network (where your PC is)
+**SSH:** Allow only from your trusted network (where your PC is)
 ```bash
 ufw allow from 192.168.10.0/24 to any port 22 comment 'SSH from Trusted Network' 
 ```
-Plex: Allow from your trusted network (to access from your PC)
+**Plex:** Allow from your trusted network (to access from your PC)
 ```bash
 ufw allow from 192.168.10.0/24 to any port 32400 comment 'Plex from Trusted Network' 
 ```
-Plex: Allow from server network (where Plex container runs)
+**Plex:** Allow from server network (where Plex container runs)
 ```bash
 ufw allow from 192.168.20.0/24 to any port 32400 comment 'Plex from Server Network' 
 ```
