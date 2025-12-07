@@ -344,7 +344,6 @@ Go to your Plex **container → Resources → Add → Mount Point**.
 
 3. Back in Plex Container Console
 ````bash
-# STOP Plex before configuring storage
 systemctl stop plexmediaserver
 ````
 Choose Storage Configuration:
