@@ -302,6 +302,13 @@ Enable en start the Plex media server
 systemctl enable plexmediaserver
 systemctl start plexmediaserver
 ```
+Optional: Clean up Installation File
+
+The ```.deb``` file is no longer needed after the installation is complete and can be safely removed.
+```bash
+rm plexmediaserver_*.deb
+```
+
 # Check if the GPU is visible in the container:
 ```bash
 echo "=== Checking GPU Access ==="
