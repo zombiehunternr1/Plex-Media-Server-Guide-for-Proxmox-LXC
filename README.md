@@ -347,8 +347,8 @@ Go to your Plex **container → Resources → Add → Mount Point**.
 systemctl stop plexmediaserver
 ````
 Choose Storage Configuration:
-````bash
 OPTION A: SINGLE DRIVE SETUP
+````bash
 mkdir -p /mnt/plexdata
 mkdir -p /mnt/plexdata/movies
 mkdir -p /mnt/plexdata/tvshows
@@ -357,8 +357,8 @@ mkdir -p /mnt/plexdata/metadata
 chown -R plex:plex /mnt/plexdata
 chmod -R 775 /mnt/plexdata
 ````
-````bash
 OPTION B: SEPARATE METADATA LOCATION (When running Proxmox on a SSD and your media storage on an HDD)
+````bash
 mkdir -p /opt/plex/metadata
 mkdir -p /opt/plex/transcode
 mkdir -p /mnt/plexdata/movies
