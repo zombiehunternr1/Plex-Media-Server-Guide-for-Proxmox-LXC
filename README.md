@@ -716,14 +716,14 @@ Go to Settings → Remote Access
     * In **"Custom server access URLs"** fill in your **domain-URL**. 
 3. Click on **Save Changes**
 
-Go back to your plex container and reboot it to make sure the server runs with the desired changes:
+**Reboot the Plex container** to ensure the server runs with all the desired changes:
 
-  **From Proxmox host:**
+  **Option A: From Proxmox host**
    ```bash
    pct restart YOUR_CONTAINER_ID
    ```
 
-  **Or from inside the container console:**
+  **Option B: From inside the container console**
    ```bash
    reboot
    ```
