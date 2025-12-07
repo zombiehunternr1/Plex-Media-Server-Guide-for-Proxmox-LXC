@@ -164,7 +164,7 @@ pct stop YOUR_CONTAINER_ID
 pct start YOUR_CONTAINER_ID
 ````
 
-## 🖥️ STEP 1: Update and Configure/check Network Settings for the Container ##
+## 🖥️ STEP 1: Update and Configure/Check Network Settings for the Container ##
 Perform these actions from inside the Plex container console.
 
 Update system and install essential packages
