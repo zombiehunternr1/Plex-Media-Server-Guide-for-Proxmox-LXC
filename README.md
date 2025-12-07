@@ -237,36 +237,30 @@ This step applies firewall rules to the LXC container to restrict access.
 
 > ❗ **Important Note:** Use the correct port for your server. If this is your **first/main** Plex server, use port **32400**. If this is an **additional** server on your network, use the corresponding `socat` proxy port (e.g., `32402`).
 
-### 1. Removing Rules (In case of a mistake)
-
-If you need to undo a rule, use `ufw delete` followed by the exact rule you want to remove.
-
-```bash
-# Example: Removes the rule allowing port 22 from the trusted network
-ufw delete allow from 192.168.10.0/24 to any port 22
-```
-
-## 🔒 STEP 3 - Secure the Container with UFW ##
-
-Assumptions: Trusted Network: ```192.168.10.x```, Server Network: ```192.168.20.x```. Adjust if your network differs.
-**Note**: If you use socat proxy (Step 7), you will need to allow the proxy port (e.g., 32402) instead of or in addition to 32400.
-
 **SSH:** Allow only from your trusted network (where your PC is)
 ```bash
 ufw allow from 192.168.10.0/24 to any port 22 comment 'SSH from Trusted Network' 
 ```
 **Plex:** Allow from your trusted network (to access from your PC)
 ```bash
-ufw allow from 192.168.10.0/24 to any port 32400 comment 'Plex from Trusted Network' 
+ufw allow from 192.168.10.0/24 to any port YOUR_PLEX_PORT comment 'Plex from Trusted Network' 
 ```
 **Plex:** Allow from server network (where Plex container runs)
 ```bash
-ufw allow from 192.168.20.0/24 to any port 32400 comment 'Plex from Server Network' 
+ufw allow from 192.168.20.0/24 to any port YOUR_PLEX_PORT comment 'Plex from Server Network' 
 ```
 Enable UFW and check if the firewall rules are implemented correctly
 ```bash
 ufw enable
 ufw status
+```
+### Removing Rules (In case of a mistake)
+
+If you need to undo a rule, use `ufw delete` followed by the exact rule you want to remove.
+
+```bash
+# Example: Removes the rule allowing port 22 from the trusted network
+ufw delete allow from 192.168.10.0/24 to any port 22
 ```
 
 ## 👤 STEP 4 - Create a Non-Root User ##
