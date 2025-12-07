@@ -94,14 +94,15 @@ Add the ```non-free``` repository: ```nano /etc/apt/sources.list```
 
 Append ```non-free``` to your Debian repository lines.
 
-````bash
+```bash
 apt update
 apt install -y nvidia-driver nvidia-smi
-
+```
+```bash
 # Blacklist nouveau driver
 echo "blacklist nouveau" >> /etc/modprobe.d/blacklist.conf
 echo "options nouveau modeset=0" >> /etc/modprobe.d/blacklist.conf
-````
+```
 
 ### 4. Configure LXC Container for GPU Passthrough
 Edit the container configuration file: ```nano /etc/pve/lxc/YOUR_CONTAINER_ID.conf```
@@ -165,23 +166,31 @@ pct start YOUR_CONTAINER_ID
 
 ## 🖥️ STEP 1: Update and Configure Network Settings for the Container ##
 Perform these actions from inside the Plex container console.
-````bash
-# Update system and install essential packages
+
+Update system and install essential packages
+```bash
 apt update && apt upgrade -y
+```
+Install OpenSSH and GNUPG
+```bash
 apt install ufw sudo curl nano openssh-server wget gnupg -y
-
-# Enable SSH
+```
+Enable SSH
+```bash
 systemctl enable ssh --now
-````
+```
 ## ⚙️ STEP 2 - Set Static IP ##
-````bash
-# Check your interface and current IP
+
+Check your interface and current IP
+```bash
 ip a
-
-# Edit network configuration
+```
+Edit network configuration
+```bash
 nano /etc/network/interfaces
-
-# Replace the content with the following:
+````
+Replace the content with the following:
+```bash
 auto lo
 iface lo inet loopback
 
@@ -190,52 +199,66 @@ iface eth0 inet static
     address YOUR_IP_ADDRESS/24  # /24 = 255.255.255.0
     gateway YOUR_GATEWAY
     dns-nameservers 8.8.8.8 1.1.1.1
-````
+```
 Ctrl + o -> Enter -> Ctrl + x
 
-# Restart networking
+Restart networking
+```bash
 systemctl restart networking
-
+```
 ## 🔒 STEP 3 - Secure the Container with UFW ##
 
 Assumptions: Trusted Network: ```192.168.10.x```, Server Network: ```192.168.20.x```. Adjust if your network differs.
-````bash
-# SSH: Allow only from your trusted network (where your PC is)
+
+SSH: Allow only from your trusted network (where your PC is)
+```bash
 ufw allow from 192.168.10.0/24 to any port 22 comment 'SSH from Trusted Network' 
-
-# Plex: Allow from your trusted network (to access from your PC)
+```
+Plex: Allow from your trusted network (to access from your PC)
+```bash
 ufw allow from 192.168.10.0/24 to any port 32400 comment 'Plex from Trusted Network' 
-
-# Plex: Allow from server network (where Plex container runs)
+```
+Plex: Allow from server network (where Plex container runs)
+```bash
 ufw allow from 192.168.20.0/24 to any port 32400 comment 'Plex from Server Network' 
-
+```
+Enable UFW and check if the firewall rules are implemented correctly
+```bash
 ufw enable
 ufw status
-````
+```
 **Note**: If you use socat proxy (Step 7), you will need to allow the proxy port (e.g., 32402) instead of or in addition to 32400.
 
 ## 👤 STEP 4 - Create a Non-Root User ##
-````bash
-# Create admin user for managing media files
+Create admin user for managing media files
+````bash 
 adduser plexadmin
 usermod -aG sudo plexadmin
 ````
 ## 💿 STEP 5 - Install Plex Media Server and Check GPU Access ##
-````bash
-# Download latest Plex Media Server
-# Visit: [https://www.plex.tv/media-server-downloads/](https://www.plex.tv/media-server-downloads/) and copy the link for your hardware/distro.
-wget PASTE_LINK_HERE
-dpkg -i plexmediaserver_*.deb
 
+Download latest Plex Media Server
+Visit: [https://www.plex.tv/media-server-downloads/](https://www.plex.tv/media-server-downloads/) and copy the link for your hardware/distro.
+
+```bash
+wget PASTE_LINK_HERE
+```
+Unpack the Plex media server package
+```bash
+dpkg -i plexmediaserver_*.deb
+```
+Enable en start the Plex media server
+```bash
 systemctl enable plexmediaserver
 systemctl start plexmediaserver
-
+```
 # Check if the GPU is visible in the container:
+```bash
 echo "=== Checking GPU Access ==="
 ls /dev/dri 2>/dev/null && echo "✓ Intel/AMD iGPU is accessible" || echo "✗ Intel/AMD iGPU NOT accessible"
 ls /dev/nvidia* 2>/dev/null && echo "✓ NVIDIA GPU is accessible" || echo "✗ NVIDIA GPU NOT accessible"
 echo ""
-````
+```
 
 ## 🚀 STEP 5.1 - Install GPU Drivers (CHOOSE ONE OPTION) ##
 Choose the driver installation option that matches your hardware configuration from STEP 0.
