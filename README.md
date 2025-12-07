@@ -434,7 +434,6 @@ Verify both services are running
 systemctl status plexmediaserver
 systemctl status plex-proxy
 ```
-**Verification Step:**
 Verify if Plex is running on port 32400 and Socat is running on port 32402.
 
 *Expected Output:* You should see two lines, confirming both ports are in the ```LISTEN``` state.
