@@ -21,14 +21,23 @@ If you only need a basic Plex server without GPU hardware acceleration:
 
 | Component | Recommendation | Notes |
 | :--- | :--- | :--- |
-| **CPU** | 4 cores | Start with 4, adjust to 6 if performance is slow. |
-| **Memory** | 4 GB | Recommended. |
-| **Disk** | 4 GB | Recommended for OS (media storage will be separate). |
-| **Network** | `vmbr0` | Use a static IP or DHCP reservation. |
-| **DNS** | 8.8.8.8 or 1.1.1.1 | Recommended. |
+| **General** | Hostname | Call it however you see fit (e.g. Plex-Server). |
+| **General** | ✓ Enable Unpriviliged | Recommended. |
+| **General** | ✓ Enable Nesting | Required. |
 | **Template** | Debian 12 | Recommended. |
-| **Nesting** | ✓ Enable Nesting | Required. |
+| **Disk** | 4 GB | Recommended for OS (media storage will be separate). |
+| **CPU** | 4 cores | Start with 4, adjust to 6 if performance is slow. |
+| **Memory** | 4 GB (4096MB) | Recommended. |
+| **Network** | `vmbr0` | Use a static IP or DHCP reservation. (e.g. 192.168.20.x/24) |
+| **DNS** | 8.8.8.8 or 1.1.1.1 | Recommended. |
 | **FUSE** | ✓ Enable FUSE | Required. |
+
+❗ Enabling FUSE (Filesystem in Userspace)
+The FUSE feature can be set after the container has been created:
+ 1. Click on the container in the Proxmox GUI.
+ 2. Navigate to the Options panel.
+ 3. Select "Features" and click on "Edit".
+ 4. Inside the popup window, check the FUSE box.
 
 ### Storage Strategy
 
@@ -58,7 +67,7 @@ Edit your GRUB configuration: `nano /etc/default/grub`
 
 Apply changes:
 
-Ctrl + o -> Enter -> Ctrl + x
+Ctrl + o → Enter → Ctrl + x
 
 Update the grub:
 ```bash
@@ -79,7 +88,7 @@ kvmgt
 ````
 Apply changes:
 
-Ctrl + o -> Enter -> Ctrl + x
+Ctrl + o → Enter → Ctrl + x
 
 Update the initramfs and reboot:
 ````bash
@@ -156,7 +165,7 @@ lxc.mount.entry: /dev/nvidia-uvm dev/nvidia-uvm none bind,optional,create=file
 ````
 Save and the configuration:
 
-Ctrl + o -> Enter -> Ctrl + x
+Ctrl + o → Enter → Ctrl + x
 
 Restart the container
 ````bash
@@ -200,7 +209,7 @@ iface eth0 inet static
     gateway YOUR_GATEWAY
     dns-nameservers 8.8.8.8 1.1.1.1
 ```
-Ctrl + o -> Enter -> Ctrl + x
+Ctrl + o → Enter → Ctrl + x
 
 Restart networking
 ```bash
@@ -517,7 +526,7 @@ server {
     }
 }
 ```
-Ctrl + o -> Enter -> Ctrl + x
+Ctrl + o → Enter → Ctrl + x
 
 **Enable the site**
 ```bash
@@ -556,7 +565,7 @@ PubkeyAuthentication yes # Uncomment
 PasswordAuthentication yes # Uncomment
 AllowUsers plexadmin    # Add this line at the end
 ````
-Ctrl + o -> Enter -> Ctrl + x
+Ctrl + o → Enter → Ctrl + x
 
 Restart SSH for the changes to take effect:
 ````bash
