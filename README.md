@@ -698,6 +698,8 @@ Go to Settings → Transcoder
 | **Use hardware-accelerated video encoding** | ✓ Checked |
 | **Hardware transcoding device** | `auto` |
 
+**Save Changes**
+
 **Remote Access Settings**
 
 For your **FIRST/MAIN** Plex Server **ONLY**:
@@ -708,17 +710,17 @@ Go to Settings → Remote Access
 
 **For ADDITIONAL Plex Servers ONLY (If running multiple)**:
 
-1.  Go to **Settings → Remote Access**
-    * Make sure **Remote Access** is **Disabled**.
-2.  Go to **Settings → Network**
-    * In **"Custom server access URLs"** fill in your **domain-name**.
-3.  **Reboot the container** to make sure the server runs with the desired changes:
+1. Go to **Settings → Remote Access**
+    * Make sure **Remote Access** is **Disabled**. If it isn't click on the **Disable Remote Access** button and confirm by pressing **Disable**
+2. Go to **Settings → Network**
+    * In **"Custom server access URLs"** fill in your **domain-URL**. 
+3. Click on **Save Changes**
 
+Go back to your plex container and reboot it to make sure the server runs with the desired changes:
     **From Proxmox host:**
     ```bash
     pct restart YOUR_CONTAINER_ID
     ```
-
     **Or from inside the container console:**
     ```bash
     reboot
