@@ -476,7 +476,9 @@ systemctl start plexmediaserver
 ## 🔌 STEP 7 - Setup Socat Proxy for Port Translation (OPTIONAL) ##
 **ONLY NEEDED IF:**
 - Plex is already running on port 32400 elsewhere
-- You need a different external port (e.g., 32402).
+- You need a different external port (e.g., 32402, 32403, etc.).
+
+Replace ```YOUR_EXTERNAL_PORT``` in the steps below with your chosen port (e.g., ```32402```).
 
 Install socat
 ```bash
@@ -484,15 +486,15 @@ apt install socat -y
 ```
 Create socat proxy service to map external port 32402 to internal Plex on 32400
 ```bash
-cat > /etc/systemd/system/plex-proxy.service << 'EOF'
+cat > /etc/systemd/system/plex-proxy-YOUR_EXTERNAL_PORT.service << 'EOF'
 [Unit]
-Description=Plex Port Proxy (32402 to 32400)
+Description=Plex Port Proxy (YOUR_EXTERNAL_PORT to 32400)
 After=plexmediaserver.service
 Requires=plexmediaserver.service
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/socat TCP-LISTEN:32402,bind=0.0.0.0,fork,reuseaddr TCP:127.0.0.1:32400
+ExecStart=/usr/bin/socat TCP-LISTEN:YOUR_EXTERNAL_PORT,bind=0.0.0.0,fork,reuseaddr TCP:127.0.0.1:32400
 Restart=always
 User=root
 
@@ -503,13 +505,13 @@ EOF
 Enable and start the proxy
 ```bash
 systemctl daemon-reload
-systemctl enable plex-proxy
-systemctl start plex-proxy
+systemctl enable plex-proxy-YOUR_EXTERNAL_PORT
+systemctl start plex-proxy-YOUR_EXTERNAL_PORT
 ```
 Verify both services are running
 ```bash
 systemctl status plexmediaserver
-systemctl status plex-proxy
+systemctl status plex-proxy-YOUR_EXTERNAL_PORT
 ```
 Verify if Plex is running on port 32400 and Socat is running on port 32402.
 
