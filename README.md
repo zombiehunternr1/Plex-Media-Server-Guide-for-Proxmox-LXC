@@ -400,11 +400,12 @@ systemctl restart plexmediaserver
 - Plex is already running on port 32400 elsewhere
 - You need a different external port (e.g., 32402).
 
-````bash
-# Install socat
+Install socat
+```bash
 apt install socat -y
-
-# Create socat proxy service to map external port 32402 to internal Plex on 32400
+```
+Create socat proxy service to map external port 32402 to internal Plex on 32400
+```bash
 cat > /etc/systemd/system/plex-proxy.service << 'EOF'
 [Unit]
 Description=Plex Port Proxy (32402 to 32400)
@@ -420,17 +421,19 @@ User=root
 [Install]
 WantedBy=multi-user.target
 EOF
-
-# Enable and start the proxy
+```
+Enable and start the proxy
+```bash
 systemctl daemon-reload
 systemctl enable plex-proxy
 systemctl start plex-proxy
-
-# Verify both services are running
+```
+Verify both services are running
+```bash
 systemctl status plexmediaserver
 systemctl status plex-proxy
 ss -tlnp | grep -E '32400|32402'
-````
+```
 
 ## 🌐 STEP 8 - Configure Reverse Proxy (OPTIONAL) ##
 Choose the section that applies to your setup (Nginx or Nginx Proxy Manager).
@@ -439,14 +442,19 @@ Choose the section that applies to your setup (Nginx or Nginx Proxy Manager).
 
 **STEP 8A - Install and Configure NGINX Reverse Proxy (Standalone)**
 
-````bash
-# Install nginx
+Install nginx
+```bash
 apt install nginx -y
+```
+Install certbot
+```bash
 apt install certbot python3-certbot-nginx -y
+```
 
 # Create nginx configuration
+```bash
 nano /etc/nginx/sites-available/plex
-````
+```
 Add the following configuration (Replace ```YOUR_DUCKDNS_DOMAIN.duckdns.org```):
 ```bash
 # Plex Media Server reverse proxy
@@ -495,14 +503,14 @@ server {
         proxy_pass [http://127.0.0.1:32400](http://127.0.0.1:32400); # CHANGE PORT IF NEEDED
     }
 }
-
-````
+```
 Ctrl + o -> Enter -> Ctrl + x
 
 **Enable the site**
 
 ```ln -s /etc/nginx/sites-available/plex /etc/nginx/sites-enabled/```
 
+**Restart NGINX for the changes to take effect**
 ```systemctl restart nginx```
 
 **STEP 8B - SSL CERTIFICATE VIA NGINX PROXY MANAGER**
