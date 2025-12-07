@@ -206,7 +206,7 @@ Edit network configuration
 ```bash
 nano /etc/network/interfaces
 ````
-Replace the content with the following if it's not already been set during the container setup:
+Replace the content with the following:
 ```bash
 auto lo
 iface lo inet loopback
