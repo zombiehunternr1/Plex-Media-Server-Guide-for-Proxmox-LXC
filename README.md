@@ -269,6 +269,15 @@ Create admin user for managing media files
 adduser plexadmin
 usermod -aG sudo plexadmin
 ````
+You get asked to fill in the following fields:
+ - Full Name
+ - Room Number
+ - Work Phone
+ - Home Phone
+ - Other
+You don't need to fill these in and just press **Enter** to continue.
+When confirming if the information type 'Y' and hit **Enter**.
+
 ## 💿 STEP 5 - Install Plex Media Server and Check GPU Access ##
 
 Download latest Plex Media Server
