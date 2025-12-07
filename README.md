@@ -164,7 +164,7 @@ pct stop YOUR_CONTAINER_ID
 pct start YOUR_CONTAINER_ID
 ````
 
-## 🖥️ STEP 1: Update and Configure Network Settings for the Container ##
+## 🖥️ STEP 1: Update and Configure/check Network Settings for the Container ##
 Perform these actions from inside the Plex container console.
 
 Update system and install essential packages
@@ -189,7 +189,7 @@ Edit network configuration
 ```bash
 nano /etc/network/interfaces
 ````
-Replace the content with the following:
+Replace the content with the following if it's not already been set during the container setup:
 ```bash
 auto lo
 iface lo inet loopback
