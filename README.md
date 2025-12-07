@@ -572,11 +572,15 @@ If accessing Plex directly from outside, forward port **32400** to **YOUR_MAIN_P
 Access Plex via: ```http://YOUR_IP_ADDRESS:32400/web``` (or ````:32402/web```` if using socat proxy).
 
 **Initial Setup**
-1. Sign in to your Plex account.
-2. Give the server a name.
-3. Add libraries:
-  - Movies: /mnt/plexdata/movies
-  - TV Shows: /mnt/plexdata/tvshows
+
+1.  **Sign in** to your Plex account.
+2.  **Give the server a name** (e.g., *Proxmox-Plex*).
+3.  **Add Libraries using these paths:**
+
+| Library type | Media Folder Path |
+| :--- | :--- |
+| **Movies** | `/mnt/plexdata/movies` |
+| **TV Shows** | `/mnt/plexdata/tvshows` |
 
 **Remote Access Settings**
 For your **FIRST/MAIN** Plex Server **ONLY**:
@@ -585,25 +589,33 @@ Go to Settings → Remote Access
 - Set Public port to: ```32400```.
 - Apply changes.
 
-**Configure Transcoder Settings** 
+**Configure Transcoder Settings**
 Go to Settings → Transcoder
-- Transcoder quality: "Prefer higher speed encoding"
-- Transcoder temporary directory: ```/tmp/plex-transcode```
-- ✓ Use hardware acceleration when available
-- ✓ Use hardware-accelerated video encoding
-- Hardware transcoding device: ```auto```
+
+| Setting | Value |
+| :--- | :--- |
+| **Transcoder quality** | "Prefer higher speed encoding" |
+| **Transcoder temporary directory** | `/tmp/plex-transcode` |
+| **Use hardware acceleration when available** | ✓ Checked |
+| **Use hardware-accelerated video encoding** | ✓ Checked |
+| **Hardware transcoding device** | `auto` |
 
 **For ADDITIONAL Plex Servers ONLY (If running multiple)**:
-Go to Settings → Remote Access
-- Remote Access: Make sure this setting is **Disabled**.
-- Network: In ```"Custom server access URLs"``` fill in your **domain-name**.
-- Reboot the container to make sure the server runs with the desired changes
-  - From Proxmox host:
-    
-    ```pct restart YOUR_CONTAINER_ID```
-  - Or from inside the container console:
-    
-    ```reboot```
+1.  Go to **Settings → Remote Access**
+    * Make sure **Remote Access** is **Disabled**.
+2.  Go to **Settings → Network**
+    * In **"Custom server access URLs"** fill in your **domain-name**.
+3.  **Reboot the container** to make sure the server runs with the desired changes:
+
+    **From Proxmox host:**
+    ```bash
+    pct restart YOUR_CONTAINER_ID
+    ```
+
+    **Or from inside the container console:**
+    ```bash
+    reboot
+    ```
 
 ## ✨ NEXT STEPS: Adding Media and Final Checks ##
 After completing the web interface setup (Step 11), you are ready to use your Plex server!
