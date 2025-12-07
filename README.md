@@ -119,7 +119,10 @@ echo "options nouveau modeset=0" >> /etc/modprobe.d/blacklist.conf
 ```
 
 ### 4. Configure LXC Container for GPU Passthrough
-Edit the container configuration file: ```nano /etc/pve/lxc/YOUR_CONTAINER_ID.conf```
+Edit the container configuration file: 
+```bash
+nano /etc/pve/lxc/YOUR_CONTAINER_ID.conf
+```
 
 **IMPORTANT**: Replace ```YOUR_CONTAINER_ID``` with your actual container ID (e.g., 100).
 
