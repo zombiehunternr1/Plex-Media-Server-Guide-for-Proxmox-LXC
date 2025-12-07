@@ -520,11 +520,14 @@ server {
 Ctrl + o -> Enter -> Ctrl + x
 
 **Enable the site**
-
-```ln -s /etc/nginx/sites-available/plex /etc/nginx/sites-enabled/```
+```bash
+ln -s /etc/nginx/sites-available/plex /etc/nginx/sites-enabled/
+```
 
 **Restart NGINX for the changes to take effect**
-```systemctl restart nginx```
+```bash
+systemctl restart nginx
+```
 
 **STEP 8B - SSL CERTIFICATE VIA NGINX PROXY MANAGER**
 
