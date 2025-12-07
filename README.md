@@ -275,6 +275,7 @@ You get asked to fill in the following fields:
  - Work Phone
  - Home Phone
  - Other
+
 You don't need to fill these in and just press **Enter** to continue.
 When confirming if the information type 'Y' and hit **Enter**.
 
