@@ -430,7 +430,7 @@ chown -R plex:plex /mnt/plexdata
 chmod -R 775 /opt/plex
 chmod -R 775 /mnt/plexdata
 ````
-** ⚠️ IMPORTANT WARNING:** Ignore 'Permission denied' 
+⚠️ **IMPORTANT WARNING:** Ignore 'Permission denied' 
 
 You may see the following denied messages regarding the system-created */mnt/plexdata/lost+found directory*. 
 
