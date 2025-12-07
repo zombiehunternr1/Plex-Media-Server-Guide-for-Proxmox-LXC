@@ -35,9 +35,9 @@ If you only need a basic Plex server without GPU hardware acceleration:
 ❗ Enabling FUSE (Filesystem in Userspace)
 The FUSE feature can be set after the container has been created:
  1. Click on the container in the Proxmox GUI.
- 2. Navigate to the Options panel.
- 3. Select "Features" and click on "Edit".
- 4. Inside the popup window, check the FUSE box.
+ 2. Navigate to the **Options** panel.
+ 3. Select **"Features"** and click on **"Edit"** at the top.
+ 4. Inside the popup window, check the **FUSE** box.
 
 ### Storage Strategy
 
