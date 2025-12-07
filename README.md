@@ -92,11 +92,14 @@ Apply changes:
 
 Ctrl + o → Enter → Ctrl + x
 
-Update the initramfs and reboot:
+Update the initramfs:
 ````bash
 update-initramfs -u -k all
-reboot
 ````
+After this is done reboot the system:
+```bash
+reboot
+```
 
 ### 3. Install NVIDIA Drivers on Proxmox Host (NVIDIA Only)
 This is **ONLY** needed if you plan to use an NVIDIA dedicated GPU. **SKIP** if using only Intel or AMD iGPU.
