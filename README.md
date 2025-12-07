@@ -683,6 +683,9 @@ Access Plex via: ```http://YOUR_IP_ADDRESS:32400/web``` (or ````:32402/web```` i
 | **Movies** | ```plexdata``` → ```Movies```. The final path will look like this: `/mnt/plexdata/movies` |
 | **TV Shows** | ```plexdata``` → ```tvshows```. The final path will look like this: `/mnt/plexdata/tvshows` |
 
+6. Click on **Next**
+7. Click on **Done**
+
 **Remote Access Settings**
 For your **FIRST/MAIN** Plex Server **ONLY**:
 Go to Settings → Remote Access
