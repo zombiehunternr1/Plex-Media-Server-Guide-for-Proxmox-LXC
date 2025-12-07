@@ -370,16 +370,19 @@ chmod -R 775 /opt/plex
 chmod -R 775 /mnt/plexdata
 ````
 Continue with User and Symlink:
-````bash
-# Add plexadmin to plex group for file management
+
+*Add plexadmin to plex group for file management*
+```bash
 usermod -aG plex plexadmin
-
-# Create convenience symlink for plexadmin
+```
+*Create convenience symlink for plexadmin*
+```bash
 sudo -u plexadmin ln -s /mnt/plexdata /home/plexadmin/plexdata
-
-# Restart Plex
+```
+*Restart Plex*
+```bash
 systemctl start plexmediaserver
-````
+```
 Create RAM Disk for Transcoding (Best Performance):
 ````bash
 echo "Creating RAM disk for optimal transcoding performance..."
