@@ -687,6 +687,7 @@ Access Plex via: ```http://YOUR_IP_ADDRESS:32400/web``` (or ````:32402/web```` i
 7. Click on **Done**
 
 **Configure Transcoder Settings**
+
 Go to Settings → Transcoder
 
 | Setting | Value |
@@ -698,6 +699,7 @@ Go to Settings → Transcoder
 | **Hardware transcoding device** | `auto` |
 
 **Remote Access Settings**
+
 For your **FIRST/MAIN** Plex Server **ONLY**:
 Go to Settings → Remote Access
 - Check **"Manually specify public port"**.
@@ -705,6 +707,7 @@ Go to Settings → Remote Access
 - Apply changes.
 
 **For ADDITIONAL Plex Servers ONLY (If running multiple)**:
+
 1.  Go to **Settings → Remote Access**
     * Make sure **Remote Access** is **Disabled**.
 2.  Go to **Settings → Network**
