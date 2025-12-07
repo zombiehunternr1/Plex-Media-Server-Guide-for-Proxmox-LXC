@@ -175,7 +175,7 @@ Save and the configuration:
 
 Ctrl + o → Enter → Ctrl + x
 
-Restart the container
+Restart the container if it's already running, otherwise you can **skip** this step
 ````bash
 pct stop YOUR_CONTAINER_ID
 pct start YOUR_CONTAINER_ID
