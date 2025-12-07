@@ -717,14 +717,16 @@ Go to Settings → Remote Access
 3. Click on **Save Changes**
 
 Go back to your plex container and reboot it to make sure the server runs with the desired changes:
-    **From Proxmox host:**
-    ```bash
-    pct restart YOUR_CONTAINER_ID
-    ```
-    **Or from inside the container console:**
-    ```bash
-    reboot
-    ```
+
+  **From Proxmox host:**
+   ```bash
+   pct restart YOUR_CONTAINER_ID
+   ```
+
+  **Or from inside the container console:**
+   ```bash
+   reboot
+   ```
 
 ## ✨ NEXT STEPS: Adding Media and Final Checks ##
 After completing the web interface setup (Step 11), you are ready to use your Plex server!
