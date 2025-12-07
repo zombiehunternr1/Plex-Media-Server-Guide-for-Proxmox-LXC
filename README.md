@@ -680,7 +680,7 @@ Access Plex via: ```http://YOUR_IP_ADDRESS:32400/web``` (or ````:32402/web```` i
 
 | Library type | Media Folder Path |
 | :--- | :--- |
-| **Movies** | ```plexdata``` → ```Movies```. The final path will look like this: `/mnt/plexdata/movies` |
+| **Movies** | ```plexdata``` → ```movies```. The final path will look like this: `/mnt/plexdata/movies` |
 | **TV Shows** | ```plexdata``` → ```tvshows```. The final path will look like this: `/mnt/plexdata/tvshows` |
 
 6. Click on **Next**
@@ -713,7 +713,7 @@ Go to Settings → Remote Access
 1. Go to **Settings → Remote Access**
     * Make sure **Remote Access** is **Disabled**. If it isn't click on the **Disable Remote Access** button and confirm by pressing **Disable**
 2. Go to **Settings → Network**
-    * In **"Custom server access URLs"** fill in your **domain-URL**. 
+    * In **"Custom server access URLs"** fill in your full **domain-name** (e.g., https://plex.yourdomain.com).
 3. Click on **Save Changes**
 
 **Reboot the Plex container** to ensure the server runs with all the desired changes:
