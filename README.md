@@ -54,7 +54,7 @@ Edit your GRUB configuration: `nano /etc/default/grub`
 | :--- | :--- | :--- |
 | **Intel CPU** (Most Common) | `GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt"` | Use for Intel iGPU or dedicated GPU. |
 | **NVIDIA GPU** | `GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt video=efifb:off"` | Use if you're using an RTX-series card |
-| **AMD CPU** | `#GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on iommu=pt"` | Uncomment for AMD systems. |
+| **AMD CPU** | `#GRUB_CMDLINE_LINUX_DEFAULT="quiet amd_iommu=on iommu=pt"` | Use for AMD iGPU and AMD GPU. |
 
 Apply changes:
 
