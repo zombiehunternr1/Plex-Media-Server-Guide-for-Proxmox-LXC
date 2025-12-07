@@ -467,9 +467,12 @@ echo "tmpfs /tmp/plex-transcode tmpfs defaults,size=2G 0 0" | tee -a /etc/fstab
 mount /tmp/plex-transcode
 df -h /tmp/plex-transcode
 echo "✓ RAM disk created at /tmp/plex-transcode (2GB)"
-
-systemctl restart plexmediaserver
 ````
+Restart Plex
+```bash
+systemctl start plexmediaserver
+```
+
 ## 🔌 STEP 7 - Setup Socat Proxy for Port Translation (OPTIONAL) ##
 **ONLY NEEDED IF:**
 - Plex is already running on port 32400 elsewhere
