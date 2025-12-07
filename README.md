@@ -672,7 +672,7 @@ Access Plex via: ```http://YOUR_IP_ADDRESS:32400/web``` (or ````:32402/web```` i
 
 **Initial Setup**
 
-1.  **Sign in** to your Plex account.
+1.  **Sign in** to your Plex account. (If needed)
 2.  **Give the server a name** (e.g., *Proxmox-Plex*).
 3.  **Add Libraries using these paths:**
 
