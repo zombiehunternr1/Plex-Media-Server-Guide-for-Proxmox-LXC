@@ -12,7 +12,7 @@ If you only need a basic Plex server without GPU hardware acceleration:
 4.  Access via `http://YOUR_IP:32400/web`.
 
 ***
-👉 **PRO TIP: For a secure, domain-based setup using **HTTPS** (plex.yourdomain.com), follow the <a href="https://github.com/zombiehunternr1/NGINX-Proxy-Manager-Setup-Guide" target="_blank">NGINX Proxy Manager Setup Guide for Proxmox (LXC Container)</a> first, and then proceed with this guide.**
+👉 **PRO TIP: For a secure, domain-based setup using **HTTPS** (plex.yourdomain.com), follow the [NGINX Proxy Manager Setup Guide for Proxmox (LXC Container)](https://github.com/zombiehunternr1/NGINX-Proxy-Manager-Setup-Guide) first, and then proceed with this guide.**
 ***
 
 ---
