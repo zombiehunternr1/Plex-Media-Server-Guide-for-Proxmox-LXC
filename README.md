@@ -433,7 +433,20 @@ Verify both services are running
 ```bash
 systemctl status plexmediaserver
 systemctl status plex-proxy
+```
+**Verification Step:**
+Verify if Plex is running on port 32400 and Socat is running on port 32402.
+
+*Expected Output:* You should see two lines, confirming both ports are in the ```LISTEN``` state.
+- Plex should be listening on ```127.0.0.1:32400``` (or sometimes ```0.0.0.0:32400```).
+- Socat should be listening on ```0.0.0.0:32402``` (which confirms it's ready to receive traffic on all IPs).
+```bash
 ss -tlnp | grep -E '32400|32402'
+```
+A correct output will look something like this:
+```bash
+tcp LISTEN 0 5 127.0.0.1:32400 0.0.0.0:* users:(("Plex Media Server",pid=1234,fd=54))
+tcp LISTEN 0 5 0.0.0.0:32402 0.0.0.0:* users:(("socat",pid=5678,fd=3))
 ```
 
 ## 🌐 STEP 8 - Configure Reverse Proxy (OPTIONAL) ##
