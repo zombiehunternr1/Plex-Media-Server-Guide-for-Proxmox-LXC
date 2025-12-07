@@ -309,7 +309,7 @@ The ```.deb``` file is no longer needed after the installation is complete and c
 rm plexmediaserver_*.deb
 ```
 
-# Check if the GPU is visible in the container:
+Check if the GPU is visible in the container:
 ```bash
 echo "=== Checking GPU Access ==="
 ls /dev/dri 2>/dev/null && echo "✓ Intel/AMD iGPU is accessible" || echo "✗ Intel/AMD iGPU NOT accessible"
