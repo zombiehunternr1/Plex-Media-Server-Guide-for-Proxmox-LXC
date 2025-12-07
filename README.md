@@ -11,6 +11,10 @@ If you only need a basic Plex server without GPU hardware acceleration:
 3.  Follow **STEPS 1–6, 9, 11–13**.
 4.  Access via `http://YOUR_IP:32400/web`.
 
+***
+👉 **USEFUL TIP**: *For a secure, domain-based setup using **HTTPS** (plex.yourdomain.com), follow the [NGINX Proxy Manager Setup Guide for Proxmox (LXC Container)](LINK_TO_YOUR_NGINX_GUIDE.md) first, and then proceed with this guide.*
+***
+
 ---
 
 ## ⚙️ Container Specifications
@@ -406,7 +410,7 @@ ss -tlnp | grep -E '32400|32402'
 ## 🌐 STEP 8 - Configure Reverse Proxy (OPTIONAL) ##
 Choose the section that applies to your setup (Nginx or Nginx Proxy Manager).
 
-**ONLY DO STEP 8A IF YOU'RE NOT HOSTING YOUR OWN NGINX REVERSE PROXY SERVER.**
+*ONLY DO **STEP 8A** IF YOU'RE NOT HOSTING YOUR OWN NGINX REVERSE PROXY SERVER.*
 
 **STEP 8A - Install and Configure NGINX Reverse Proxy (Standalone)**
 
