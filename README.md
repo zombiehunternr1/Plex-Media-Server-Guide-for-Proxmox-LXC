@@ -223,9 +223,33 @@ Restart networking
 ```bash
 systemctl restart networking
 ```
+## 🔒 STEP 3 - Secure the Container with UFW
+
+This step applies firewall rules to the LXC container to restrict access.
+
+### Port Logic & Assumptions
+
+| Component | Example Network | Notes |
+| :--- | :--- | :--- |
+| **Trusted Network** (Your PC/LAN) | `192.168.10.x` | Adjust this to your local network segment (e.g., `192.168.1.0/24`). |
+| **Server Network** (Plex Container Subnet) | `192.168.20.x` | Adjust this to the network where your Plex LXC lives. |
+| **YOUR PLEX PORT** | `32400` or `32402` | Use **32400** for your main server. Use **32402**, **32403**, etc., for **additional** Plex servers to match your `socat` configuration (Step 7). |
+
+> ❗ **Important Note:** Use the correct port for your server. If this is your **first/main** Plex server, use port **32400**. If this is an **additional** server on your network, use the corresponding `socat` proxy port (e.g., `32402`).
+
+### 1. Removing Rules (In case of a mistake)
+
+If you need to undo a rule, use `ufw delete` followed by the exact rule you want to remove.
+
+```bash
+# Example: Removes the rule allowing port 22 from the trusted network
+ufw delete allow from 192.168.10.0/24 to any port 22
+```
+
 ## 🔒 STEP 3 - Secure the Container with UFW ##
 
 Assumptions: Trusted Network: ```192.168.10.x```, Server Network: ```192.168.20.x```. Adjust if your network differs.
+**Note**: If you use socat proxy (Step 7), you will need to allow the proxy port (e.g., 32402) instead of or in addition to 32400.
 
 **SSH:** Allow only from your trusted network (where your PC is)
 ```bash
@@ -244,7 +268,6 @@ Enable UFW and check if the firewall rules are implemented correctly
 ufw enable
 ufw status
 ```
-**Note**: If you use socat proxy (Step 7), you will need to allow the proxy port (e.g., 32402) instead of or in addition to 32400.
 
 ## 👤 STEP 4 - Create a Non-Root User ##
 Create admin user for managing media files
