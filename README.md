@@ -556,6 +556,13 @@ Go to Settings → Remote Access
     
     ```reboot```
 
+## ✨ NEXT STEPS: Adding Media and Final Checks ##
+After completing the web interface setup (Step 11), you are ready to use your Plex server!
+1. **Media Upload:** Proceed directly to **STEP 12** to upload your media files using the ```plexadmin``` user and SFTP.
+2. **Naming Convention:** Ensure all your movies and TV shows follow the **Plex Naming Convention** (e.g., ```Movie Name (Year).ext``` or ```TV Show Name/Season 01/Episode Name - s01e01.ext```) for proper identification and metadata fetching.
+3. **Hardware Check:** Double-check your **Transcoder settings** (under Settings → Transcoder) to ensure both "Use hardware acceleration when available" and "Use hardware-accelerated video encoding" are checked to utilize the GPU passthrough you configured in **STEP 0**.
+4. **Verification:** Once media is uploaded, proceed to **STEP 13** to run the final checks, particularly the GPU acceleration test.
+
 ## 📤 STEP 12 - Upload Media via FileZilla ##
 Use the **plexadmin** user and **SFTP** protocol on port **22**
 
