@@ -633,6 +633,7 @@ After you apply the basic proxy settings, switch to the **SSL** tab:
 > 💡 **Tip:** You can assign the same existing certificate to multiple Proxy Hosts (e.g., plex.domain.com and wiki.domain.com), provided the certificate covers all those domain names.
 
 1.  In the **SSL Certificate** dropdown, select your existing certificate.
+
 2.  Ensure **Force SSL** is enabled.
 
 ### B. If you need a new Let's Encrypt Certificate (Recommended):
