@@ -80,7 +80,7 @@ Edit the modules file:
 ````bash
 nano /etc/modules-load.d/vfio-pci.conf
 ````
-Add these lines to the end:
+Add these lines to the file:
 ````bash
 vfio
 vfio_iommu_type1
