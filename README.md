@@ -526,7 +526,7 @@ A correct output will look something like this:
 LISTEN 0 1024 0.0.0.0:32402 0.0.0.0:* users:(("socat",pid=4001,fd=5))
 LISTEN 0 1024 0.0.0.0:32400 0.0.0.0:* users:(("Plex Media Serv",pid=3775,fd=51))
 ```
-*I used ```0.0.0.0``` instead of ```*``` in the updated example above for consistency, as they mean the same thing in this context, but using ```0.0.0.0``` might be slightly clearer for users who aren't used to the ```*``` wildcard.*
+*Just a quick note: We show ```0.0.0.0``` here instead of the wildcard ```*``` for consistency. They mean the exact same thing in this context, but ```0.0.0.0``` can sometimes be clearer if you're new to network commands.*
 
 ## 🌐 STEP 8 - Configure Reverse Proxy (OPTIONAL) ##
 Choose the section that applies to your setup (Nginx or Nginx Proxy Manager).
