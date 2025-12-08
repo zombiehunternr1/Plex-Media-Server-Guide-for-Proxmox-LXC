@@ -738,7 +738,7 @@ After completing the web interface setup (Step 11), you are ready to use your Pl
 4. **Verification:** Once media is uploaded, proceed to **STEP 13** to run the final checks, particularly the GPU acceleration test.
 
 ## 📤 STEP 12 - Upload Media via FileZilla ##
-Use the **plexadmin** user and **SFTP** protocol on port **22**
+Use the IP address of your server, the **plexadmin** user, and ensure you select the **SFTP** protocol on port **22**.
 
 | Folder | Content |
 | :--- | :--- |
